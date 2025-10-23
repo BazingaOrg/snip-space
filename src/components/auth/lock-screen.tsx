@@ -1,0 +1,101 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
+
+import { verifyAccessAction, type VerifyAccessState } from "@/app/_actions/verify-access";
+import { cn } from "@/lib/utils";
+
+const INITIAL_STATE: VerifyAccessState = { status: "idle" };
+
+function formatTime(date: Date) {
+  return date.toLocaleTimeString("zh-CN", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("zh-CN", {
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+  });
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-foreground shadow-elevation-xs transition-transform duration-200 ease-mac hover:-translate-y-0.5 hover:shadow-elevation-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+      aria-label="解锁"
+      disabled={pending}
+    >
+      <span className="text-lg">⏎</span>
+    </button>
+  );
+}
+
+export function LockScreen() {
+  const [now, setNow] = useState(() => new Date());
+  const [state, formAction] = useFormState(verifyAccessAction, INITIAL_STATE);
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(new Date()), 30_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formattedTime = useMemo(() => formatTime(now), [now]);
+  const formattedDate = useMemo(() => formatDate(now), [now]);
+
+  const hasError = state.status === "error";
+
+  return (
+    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(120,190,255,0.32),rgba(255,255,255,0))]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom,_rgba(162,120,255,0.26),rgba(255,255,255,0))]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_60%,_rgba(255,160,120,0.22),rgba(255,255,255,0))]" />
+
+      <div className="flex flex-col items-center gap-6 rounded-[40px] border border-white/20 bg-white/6 px-12 py-16 text-center text-foreground shadow-elevation-md backdrop-blur-[30px]">
+        <div className="flex flex-col items-center gap-2 text-white drop-shadow">
+          <span className="text-6xl font-semibold tracking-tight sm:text-7xl">{formattedTime}</span>
+          <span className="text-base font-medium text-white/80 sm:text-lg">{formattedDate}</span>
+        </div>
+
+        <form
+          action={formAction}
+          className={cn(
+            "glass-panel flex w-full max-w-sm flex-col items-center gap-4 rounded-[28px] border border-white/20 bg-white/10 px-8 py-6 text-foreground shadow-elevation-sm",
+            hasError && "animate-shake border-destructive/40",
+          )}
+        >
+          <div className="flex flex-col gap-2 text-center">
+            <p className="text-sm font-medium tracking-[0.3em] text-foreground/70">输入访问密码</p>
+            <p className="text-xs text-foreground/50">本会话有效，关闭标签页后需重新解锁</p>
+          </div>
+
+          <div className="flex w-full items-center gap-3 rounded-full border border-white/20 bg-white/20 px-4 py-2 focus-within:border-primary/50 focus-within:bg-white/30 focus-within:shadow-elevation-xs">
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••"
+              autoComplete="current-password"
+              className="w-full bg-transparent text-center text-sm text-foreground outline-none placeholder:text-foreground/40"
+              aria-label="访问密码"
+              required
+            />
+            <SubmitButton />
+          </div>
+
+          {hasError ? (
+            <p className="text-xs text-destructive">{state.message}</p>
+          ) : (
+            <p className="text-xs text-foreground/45">按 Enter 提交或点击按钮解锁</p>
+          )}
+        </form>
+      </div>
+    </main>
+  );
+}
