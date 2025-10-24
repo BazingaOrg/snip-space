@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Clapperboard, Image as ImageIcon, Link as LinkIcon, Loader2, Plus, TextQuote } from "lucide-react";
@@ -61,7 +61,11 @@ function detectEntryType(value: string): EntryType {
   return "text";
 }
 
-export function CaptureEntryTrigger() {
+interface CaptureEntryTriggerProps {
+  readonly trigger?: ReactNode;
+}
+
+export function CaptureEntryTrigger({ trigger }: CaptureEntryTriggerProps = {}) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<DraftEntry>(initialDraft);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -179,17 +183,20 @@ export function CaptureEntryTrigger() {
     }
   }, [draft, router]);
 
+  const triggerNode =
+    trigger ?? (
+      <Button
+        size="icon"
+        className="group h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/85 text-primary-foreground shadow-elevation-md transition-transform duration-200 ease-mac hover:-translate-y-1 hover:from-primary/95 hover:to-primary/70"
+      >
+        <Plus className="h-6 w-6" />
+        <span className="sr-only">打开新建剪藏面板</span>
+      </Button>
+    );
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button
-          size="icon"
-          className="group fixed bottom-28 right-6 z-50 h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/85 text-primary-foreground shadow-elevation-md transition-transform duration-200 ease-mac hover:-translate-y-1 hover:from-primary/95 hover:to-primary/70"
-        >
-          <Plus className="h-6 w-6" />
-          <span className="sr-only">打开新建剪藏面板</span>
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{triggerNode}</DialogTrigger>
       <DialogContent className="overflow-hidden">
         <DialogHeader className="space-y-2 border-b border-white/22 bg-white/35 px-10 py-7">
           <DialogTitle className="flex items-center gap-3 text-lg text-foreground">

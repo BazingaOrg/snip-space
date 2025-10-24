@@ -31,7 +31,7 @@ function EntryCard({
         ) : null}
       </div>
       {title ? <h3 className="mt-3 text-base font-semibold text-foreground">{title}</h3> : null}
-      <p className="mt-2 text-sm text-foreground/75 line-clamp-3">{content}</p>
+      <p className="mt-2 break-words text-sm text-foreground/75 line-clamp-3">{content}</p>
     </article>
   );
 }
@@ -47,8 +47,8 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
   }
 
   return (
-    <section className="grid gap-5 sm:gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-      <div className="glass-panel flex flex-col gap-5 rounded-[32px] p-6 shadow-elevation-sm sm:gap-6 sm:rounded-[36px] sm:p-8">
+    <section className="grid w-full gap-5 sm:gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      <div className="glass-panel flex min-w-0 flex-col gap-5 rounded-[32px] p-6 shadow-elevation-sm sm:gap-6 sm:rounded-[36px] sm:p-8">
         <header className="flex items-center justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">Timeline</p>
@@ -80,7 +80,7 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
           ))}
         </div>
       </div>
-      <aside className="glass-panel flex flex-col gap-4 rounded-[32px] p-6 shadow-elevation-sm sm:rounded-[36px] sm:p-8">
+      <aside className="glass-panel flex min-w-0 flex-col gap-4 rounded-[32px] p-6 shadow-elevation-sm sm:rounded-[36px] sm:p-8">
         <h3 className="text-lg font-semibold text-foreground">Entry detail</h3>
         <p className="text-sm text-foreground/70">
           Selecting an item from the timeline will populate this panel with metadata, quick actions, and preview.

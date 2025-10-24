@@ -1,5 +1,8 @@
 "use client";
 
+import { Plus } from "lucide-react";
+
+import { CaptureEntryTrigger } from "@/components/capture/capture-modal";
 import { dockItems } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import { useViewStore } from "@/stores/view-store";
@@ -38,6 +41,17 @@ export function Dock() {
             </button>
           );
         })}
+        <CaptureEntryTrigger
+          trigger={
+            <button
+              type="button"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/85 text-primary-foreground shadow-elevation-xs transition-transform duration-200 ease-mac hover:-translate-y-1 hover:from-primary/95 hover:to-primary/70 sm:h-12 sm:w-12"
+            >
+              <Plus className="h-5 w-5" />
+              <span className="sr-only">打开新建剪藏面板</span>
+            </button>
+          }
+        />
       </div>
     </nav>
   );
