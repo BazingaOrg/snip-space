@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { getMockEntries } from "@/lib/data/fixtures";
+import type { GroupedEntries } from "@/lib/data/fixtures";
 
 function EntryCard({
   title,
@@ -36,8 +36,15 @@ function EntryCard({
   );
 }
 
-export function TimelinePlaceholder() {
-  const groups = getMockEntries();
+export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
+  if (groups.length === 0) {
+    return (
+      <section className="glass-panel flex flex-col gap-4 rounded-[32px] p-8 text-sm text-foreground/70 shadow-elevation-sm">
+        <h3 className="text-base font-semibold text-foreground">暂无剪藏</h3>
+        <p>点击右下角的 + 按钮或直接粘贴内容，即可创建第一条笔记。</p>
+      </section>
+    );
+  }
 
   return (
     <section className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">

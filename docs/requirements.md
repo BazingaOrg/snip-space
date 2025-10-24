@@ -114,7 +114,7 @@
 
 ## 12. Implementation Roadmap
 1. ✅ Initialize Next.js, Tailwind CSS, shadcn/ui baseline with global macOS 2026 tokens (completed on 2025-10-23).
-2. ⏳ Integrate Supabase client, configure environment variables, and set up `verify-password` Edge Function and storage bucket policies。（客户端工厂已就绪，Edge Function 待接入）。
+2. ⏳ Integrate Supabase client, configure environment variables, and set up `verify-password` Edge Function and storage bucket policies。（客户端工厂已就绪，暂以环境变量校验密码；Supabase 时间线查询与上传接口已搭建，Edge Function 暂不启用）。
 3. ✅ Build lock screen flow with session-scoped authentication cookie and animation（完成于 2025-10-23，支持环境变量与 Supabase Edge Function 双通道校验）。
 4. 🔄 Implement dashboard layout: Dock, timeline grouping, entry detail drawer, toast notifications（2025-10-23 搭建 Dock 与时间线占位骨架，并接入 Dock 视图状态与时间线 mock 数据分组；新增剪藏弹窗骨架与 toast 管道）。
 5. ⏳ Develop capture modal with type detection, clipboard ingestion, 10 MB compression workflow, and storage upload pipeline.
@@ -125,11 +125,13 @@
 - **2025-10-23**: 完成项目初始化，采用稳定版 Next.js + Tailwind + shadcn/ui，设置 macOS 2026 主题令牌，并在首页保留占位壳体以便后续接入实际功能。
 - **2025-10-23**: 构建仿 macOS 锁屏界面，使用 Server Action + 环境变量校验访问密码并发放会话 Cookie（关闭标签页即失效）。
 - **2025-10-23**: 接入 Supabase server/browser 客户端工厂、锁屏 Supabase Edge Function 占位、完成 Dock 与时间线骨架布局并实现基础视图切换与 mock 数据分组展示；新增剪藏弹窗（粘贴识别、10 MB 图片校验占位）与 toast 通知。
+- **2025-10-24**: 实现 `/api/entries` Supabase 上传管道（文本/链接入库、图片上传至 `entry-images`），时间线读取改为优先查询 Supabase，失败时回退到 mock 数据。
 
 ## 14. Decision Log
 - **2025-10-23**: 首页暂不展示功能预览，改为提示性占位，防止误导；所有功能实现以需求文档为准并在完成后更新进度。
 - **2025-10-23**: 要求在每个主要功能交付后同步更新文档进度，避免方向偏离与重复开发。
 - **2025-10-23**: 锁屏校验阶段依赖 `ACCESS_PASSWORD_HASH`（或临时 `ACCESS_PASSWORD`）环境变量与 `snipspace-session` Cookie；支持配置 `SUPABASE_VERIFY_PASSWORD_URL` 切换到 Edge Function 校验。
+- **2025-10-24**: 暂不启用 Edge Function，改为直接调用 `/api/entries` 接口；若 Supabase 不可用则回退到本地 mock 数据并提示配置。
 
 ## 15. Open Questions
 - Any third-party metadata preview services to integrate?

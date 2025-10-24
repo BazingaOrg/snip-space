@@ -7,6 +7,7 @@ import { Dock } from "@/components/navigation/dock";
 import { AppShell } from "@/components/layout/app-shell";
 import { DashboardContent } from "@/components/dashboard/content";
 import { SESSION_COOKIE_NAME } from "@/lib/auth/session";
+import { fetchGroupedEntries } from "@/lib/data/entries";
 
 export default function Home() {
   const hasSession = cookies().has(SESSION_COOKIE_NAME);
@@ -14,6 +15,8 @@ export default function Home() {
   if (!hasSession) {
     return <LockScreen />;
   }
+
+  const groups = await fetchGroupedEntries();
 
   return (
     <main className="flex min-h-screen flex-1 flex-col pb-32">
@@ -35,7 +38,7 @@ export default function Home() {
             Dock navigation, clipboard capture, and Supabase-backed search will populate the sections below as implementation progresses. This shell keeps the layout aligned while features land incrementally.
           </p>
         </header>
-        <DashboardContent />
+        <DashboardContent groups={groups} />
       </AppShell>
       <Dock />
       <CaptureEntryTrigger />

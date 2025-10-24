@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 
+import type { GroupedEntries } from "@/lib/data/fixtures";
 import { TimelinePlaceholder } from "@/components/timeline/placeholder";
 import { useViewStore, viewLabels, type ViewId } from "@/stores/view-store";
 
@@ -13,10 +14,12 @@ const viewDescriptions: Record<ViewId, string> = {
   settings: "偏好设置面板将用于管理访问密码、主题、动画与同步策略。",
 };
 
-export function DashboardContent() {
+export function DashboardContent({ groups }: { groups: GroupedEntries[] }) {
   const activeView = useViewStore((state) => state.activeView);
 
   const description = useMemo(() => viewDescriptions[activeView], [activeView]);
+  const timelineGroups = useMemo(() => groups, [groups]);
+  const todayGroups = useMemo(() => (timelineGroups.length > 0 ? [timelineGroups[0]] : []), [timelineGroups]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -29,7 +32,7 @@ export function DashboardContent() {
       </header>
 
       {activeView === "timeline" || activeView === "today" ? (
-        <TimelinePlaceholder />
+        <TimelinePlaceholder groups={activeView === "today" ? todayGroups : timelineGroups} />
       ) : (
         <div className="glass-panel flex flex-col gap-4 rounded-[32px] p-8 text-sm text-foreground/70 shadow-elevation-sm">
           <p className="text-base font-medium text-foreground/85">敬请期待</p>

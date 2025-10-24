@@ -10,3 +10,5 @@ export const MOTION = {
 } as const;
 
 export const IMAGE_LIMIT = 10 * 1024 * 1024; // 10 MB limit for uploads
+
+export const ENTRY_IMAGES_BUCKET = "entry-images";

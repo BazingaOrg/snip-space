@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Clapperboard, Image as ImageIcon, Link as LinkIcon, Loader2, Plus, TextQuote } from "lucide-react";
 
@@ -65,6 +66,7 @@ export function CaptureEntryTrigger() {
   const [draft, setDraft] = useState<DraftEntry>(initialDraft);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!open) {
@@ -129,21 +131,53 @@ export function CaptureEntryTrigger() {
       setError("请输入内容或粘贴图片");
       return;
     }
+
     setIsSubmitting(true);
     setError(null);
+
+    const formData = new FormData();
+    formData.append("type", draft.type);
+    formData.append("content", draft.raw ?? "");
+    if (draft.title) {
+      formData.append("title", draft.title);
+    }
+    if (draft.imageFile) {
+      formData.append("image", draft.imageFile);
+    }
+    const trimmed = draft.raw.trim();
+    if ((draft.type === "link" || draft.type === "video") && /^https?:\/\//i.test(trimmed)) {
+      formData.append("sourceUrl", trimmed);
+    }
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 600));
-      toast.success("已保存到待实现的 Supabase 管道", {
-        description: "后续将连接 Server Action 并写入数据库",
+      const response = await fetch("/api/entries", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { message?: string } | null;
+        const message = data?.message ?? "暂存失败，请稍后重试";
+        setError(message);
+        toast.error("保存失败", { description: message });
+        return;
+      }
+
+      toast.success("已保存剪藏", {
+        description: "稍后将在时间线中看到最新条目",
       });
       setOpen(false);
+      setDraft(initialDraft);
+      router.refresh();
     } catch (err) {
       console.error(err);
-      setError("暂存失败，请稍后重试");
+      const message = "请求失败，请检查网络或 Supabase 配置";
+      setError(message);
+      toast.error("保存失败", { description: message });
     } finally {
       setIsSubmitting(false);
     }
-  }, [draft]);
+  }, [draft, router]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
