@@ -74,13 +74,13 @@ const config: Config = {
         },
       },
       boxShadow: {
-        "elevation-xs": "0 4px 12px hsla(var(--shadow-color) / 0.18)",
-        "elevation-sm": "0 10px 28px hsla(var(--shadow-color) / 0.22)",
-        "elevation-md": "0 22px 48px hsla(var(--shadow-color) / 0.28)",
+        "elevation-xs": "0 6px 16px hsla(var(--shadow-color) / 0.16)",
+        "elevation-sm": "0 14px 32px hsla(var(--shadow-color) / 0.2)",
+        "elevation-md": "0 26px 54px hsla(var(--shadow-color) / 0.26)",
         "inner-glow": "inset 0 1px 0 hsla(var(--highlight-color) / 0.85)",
       },
       dropShadow: {
-        floating: "0 24px 46px hsla(var(--shadow-color) / 0.28)",
+        floating: "0 26px 58px hsla(var(--shadow-color) / 0.28)",
       },
       blur: {
         fog: "32px",
