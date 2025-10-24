@@ -2,45 +2,31 @@
 
 import { useMemo } from "react";
 
-import type { GroupedEntries } from "@/lib/data/fixtures";
+import { CaptureEntryPanel } from "@/components/capture/capture-panel";
 import { TimelinePlaceholder } from "@/components/timeline/placeholder";
-import { useViewStore, viewLabels, type ViewId } from "@/stores/view-store";
-
-const viewDescriptions: Record<ViewId, string> = {
-  today: "聚焦当日新增的文字、链接与图片，稍后会补充更多即时统计。",
-  timeline: "浏览完整时间线，所有历史剪藏按日期聚合展示。",
-  types: "类型筛选器即将上线，可按文字、图片、视频、片段等维度组合过滤。",
-  search: "全局搜索将支持关键字、日期与标签过滤，计划由 Supabase 全文索引驱动。",
-  settings: "偏好设置面板将用于管理访问密码、主题、动画与同步策略。",
-};
+import { useViewStore } from "@/stores/view-store";
+import type { GroupedEntries } from "@/lib/data/fixtures";
 
 export function DashboardContent({ groups }: { groups: GroupedEntries[] }) {
   const activeView = useViewStore((state) => state.activeView);
 
-  const description = useMemo(() => viewDescriptions[activeView], [activeView]);
   const timelineGroups = useMemo(() => groups, [groups]);
   const todayGroups = useMemo(() => (timelineGroups.length > 0 ? [timelineGroups[0]] : []), [timelineGroups]);
 
-  return (
-    <div className="flex flex-col gap-6">
-      <header className="flex flex-col gap-2">
-        <p className="text-xs uppercase tracking-[0.3em] text-foreground/55">{viewLabels[activeView]}</p>
-        <h2 className="text-2xl font-semibold text-foreground">
-          {activeView === "today" ? "今天的剪藏快照" : viewLabels[activeView]}
-        </h2>
-        <p className="text-sm text-foreground/60">{description}</p>
-      </header>
+  const panel = activeView === "capture"
+    ? <CaptureEntryPanel />
+    : (
+        <TimelinePlaceholder
+          groups={activeView === "today" ? todayGroups : timelineGroups}
+          variant={activeView === "today" ? "today" : "timeline"}
+        />
+      );
 
-      {activeView === "timeline" || activeView === "today" ? (
-        <TimelinePlaceholder groups={activeView === "today" ? todayGroups : timelineGroups} />
-      ) : (
-        <div className="glass-panel flex flex-col gap-4 rounded-[36px] p-10 text-sm text-foreground/70 shadow-elevation-sm">
-          <p className="text-base font-medium text-foreground/80">敬请期待</p>
-          <p className="text-foreground/60">
-            该视图的交互与数据流将在后续迭代中实现。当前页面仅保留布局占位，确保 Dock 状态与内容区保持同步。
-          </p>
-        </div>
-      )}
-    </div>
+  return (
+    <section className="mx-auto flex w-full max-w-[1400px] flex-col gap-6">
+      <div key={activeView} className="motion-safe:animate-view-enter">
+        {panel}
+      </div>
+    </section>
   );
 }

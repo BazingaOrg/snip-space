@@ -89,20 +89,28 @@ const config: Config = {
         glass: "28px",
       },
       transitionTimingFunction: {
-        mac: "cubic-bezier(0.16, 1, 0.3, 1)",
+        mac: "cubic-bezier(0.24, 0.82, 0.38, 1)",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%": { opacity: "0", transform: "translateY(12px) scale(0.992)" },
+          "70%": { opacity: "0.9", transform: "translateY(2px) scale(0.998)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
         "fade-down": {
-          "0%": { opacity: "0", transform: "translateY(-12px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%": { opacity: "0", transform: "translateY(-12px) scale(0.992)" },
+          "70%": { opacity: "0.9", transform: "translateY(-2px) scale(0.998)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
         "dock-bounce": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-6px)" },
+          "0%": { transform: "translateY(10px) scale(0.97)", opacity: "0" },
+          "45%": { transform: "translateY(-1px) scale(1.01)", opacity: "1" },
+          "100%": { transform: "translateY(0) scale(1)" },
+        },
+        "view-enter": {
+          "0%": { opacity: "0", transform: "translateY(10px) scale(0.992)" },
+          "65%": { opacity: "0.86", transform: "translateY(2px) scale(0.998)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
         shake: {
           "0%, 100%": { transform: "translateX(0)" },
@@ -113,9 +121,10 @@ const config: Config = {
         },
       },
       animation: {
-        "fade-up": "fade-up 0.22s var(--ease-mac) both",
-        "fade-down": "fade-down 0.2s var(--ease-mac) both",
-        "dock-bounce": "dock-bounce 0.3s ease-out",
+        "fade-up": "fade-up 0.28s var(--ease-mac) both",
+        "fade-down": "fade-down 0.28s var(--ease-mac) both",
+        "dock-bounce": "dock-bounce 0.32s var(--ease-mac) both",
+        "view-enter": "view-enter 0.3s var(--ease-mac) both",
         shake: "shake 0.4s ease",
       },
     },

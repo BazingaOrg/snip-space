@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 
-type ViewId = "today" | "timeline" | "types" | "search" | "settings";
+type ViewId = "capture" | "today" | "timeline";
 
 interface ViewState {
   activeView: ViewId;
@@ -10,16 +10,14 @@ interface ViewState {
 }
 
 export const useViewStore = create<ViewState>((set) => ({
-  activeView: "today",
+  activeView: "capture",
   setActiveView: (view) => set({ activeView: view }),
 }));
 
 export const viewLabels: Record<ViewId, string> = {
+  capture: "快速剪藏",
   today: "今日摘要",
   timeline: "时间轴",
-  types: "类型筛选",
-  search: "搜索",
-  settings: "偏好设置",
 };
 
 export type { ViewId };

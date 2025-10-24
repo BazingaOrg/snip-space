@@ -32,7 +32,14 @@ export default function RootLayout({
         )}
       >
         <div className="relative flex min-h-screen flex-col">{children}</div>
-        <Toaster position="top-right" richColors toastOptions={{ className: "backdrop-blur-[18px] bg-white/80 text-foreground" }} />
+        <Toaster
+          position="top-right"
+          richColors
+          toastOptions={{
+            className:
+              "border border-border/60 bg-surface/95 text-foreground shadow-elevation-sm backdrop-blur-[18px] supports-[backdrop-filter]:bg-surface/70",
+          }}
+        />
       </body>
     </html>
   );
