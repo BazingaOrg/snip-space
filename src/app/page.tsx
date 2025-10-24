@@ -17,7 +17,7 @@ export default async function Home() {
   const groups = await fetchGroupedEntries();
 
   return (
-    <main className="flex min-h-screen flex-col gap-10 px-4 py-14 pb-32 sm:px-10 sm:py-16 lg:px-12">
+    <main className="flex min-h-screen flex-col gap-10 px-4 py-14 pb-32 sm:px-10 sm:py-16 lg:h-screen lg:overflow-hidden lg:px-12 lg:pb-0">
       <DashboardContent groups={groups} />
       <Dock />
     </main>

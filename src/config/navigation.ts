@@ -11,7 +11,7 @@ export interface DockItem {
 }
 
 export const dockItems: DockItem[] = [
-  { id: "capture", label: "Capture", icon: NotebookPen, intent: "primary" },
   { id: "today", label: "Today", icon: CalendarClock, intent: "secondary" },
+  { id: "capture", label: "Capture", icon: NotebookPen, intent: "primary" },
   { id: "timeline", label: "Timeline", icon: ListChecks, intent: "secondary" },
 ];

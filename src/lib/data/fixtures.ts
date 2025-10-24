@@ -20,35 +20,38 @@ export interface GroupedEntries {
 const mockEntries: Entry[] = [
   {
     id: "1",
-    title: "《你好，世界》中的一句话",
-    content: "保持好奇，拥抱变化，然后用工具记录你的灵感。",
+    title: "晨间思考：聚焦一件小事",
+    content:
+      "把今天的时间留给一件真正重要的小事，剩下的交给明天的自己。\n\n写下这件小事，并为它安排一个 45 分钟的深度时间段，完成后记得奖励自己。",
     type: "text",
     createdAt: format(new Date(), "yyyy-MM-dd'T'HH:mm:ssXXX"),
-    tags: ["quote", "inspiration"],
+    tags: ["journal"],
   },
   {
     id: "2",
-    title: "Supabase Edge Functions 文档",
-    content: "https://supabase.com/docs/guides/functions",
+    title: "Next.js App Router 上手指南",
+    content: "https://nextjs.org/learn/dashboard-app",
     type: "link",
-    sourceUrl: "https://supabase.com/docs/guides/functions",
+    sourceUrl: "https://nextjs.org/learn/dashboard-app",
     createdAt: format(subDays(new Date(), 1), "yyyy-MM-dd'T'HH:mm:ssXXX"),
-    tags: ["docs"],
+    tags: ["docs", "nextjs"],
   },
   {
     id: "3",
-    title: "色彩灵感",
-    content: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    title: "黄昏下的城市剪影",
+    content:
+      "https://images.unsplash.com/photo-1526481280695-3c46917f2f61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eSUyMHN1bnNldHxlbnwwfHwwfHx8MA%3D%3D&q=80&h=800",
     type: "image",
     createdAt: format(subDays(new Date(), 1), "yyyy-MM-dd'T'HH:mm:ssXXX"),
-    tags: ["design", "palette"],
+    tags: ["photography", "inspiration"],
   },
   {
     id: "4",
-    title: "Interface 镇静配色指南",
-    content: "使用柔和玻璃拟态背景时记得控制 blur 与 saturation 避免文本失真。",
+    title: "格式化价格工具函数",
+    content: `export function formatPrice(amount: number) {\n  return new Intl.NumberFormat("zh-CN", {\n    style: "currency",\n    currency: "CNY",\n    maximumFractionDigits: 2,\n  }).format(amount);\n}`,
     type: "snippet",
     createdAt: format(subDays(new Date(), 2), "yyyy-MM-dd'T'HH:mm:ssXXX"),
+    tags: ["frontend", "utils"],
   },
 ];
 

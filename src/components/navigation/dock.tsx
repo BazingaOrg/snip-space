@@ -9,7 +9,7 @@ export function Dock() {
 
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-4 z-40 flex justify-center px-3 sm:bottom-8 sm:px-4">
-      <div className="pointer-events-auto flex w-full max-w-[760px] flex-wrap items-center justify-center gap-2 rounded-[28px] border border-border/60 bg-surface/90 px-3 py-3 shadow-elevation-sm backdrop-blur-[18px] animate-fade-up supports-[backdrop-filter]:bg-surface/70 sm:flex-nowrap sm:gap-3 sm:rounded-[32px] sm:px-5">
+      <div className="pointer-events-auto flex w-full max-w-[760px] flex-wrap items-center justify-center gap-2 rounded-[28px] border border-border/60 bg-surface/90 px-3 py-3 shadow-elevation-sm backdrop-blur-[32px] backdrop-saturate-[180%] animate-fade-up supports-[backdrop-filter]:bg-surface/70 sm:flex-nowrap sm:gap-3 sm:rounded-[32px] sm:px-5">
         {dockItems.map((item) => {
           const isActive = item.id === activeView;
 
