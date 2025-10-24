@@ -9,8 +9,9 @@ import { DashboardContent } from "@/components/dashboard/content";
 import { SESSION_COOKIE_NAME } from "@/lib/auth/session";
 import { fetchGroupedEntries } from "@/lib/data/entries";
 
-export default function Home() {
-  const hasSession = cookies().has(SESSION_COOKIE_NAME);
+export default async function Home() {
+  const cookieStore = cookies();
+  const hasSession = cookieStore.has(SESSION_COOKIE_NAME);
 
   if (!hasSession) {
     return <LockScreen />;
