@@ -4,78 +4,78 @@
 
 :root {
   --font-sans: "Inter", "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --background: 220 40% 98%;
-  --foreground: 220 32% 10%;
-  --surface: 220 22% 95%;
-  --surface-alpha: 0.82;
-  --subtle: 220 36% 92%;
-  --subtle-alpha: 0.68;
-  --glass: 220 36% 90%;
-  --glass-alpha: 0.36;
+  --background: 217 42% 96%;
+  --foreground: 222 28% 12%;
+  --surface: 215 48% 92%;
+  --surface-alpha: 0.78;
+  --subtle: 216 36% 90%;
+  --subtle-alpha: 0.58;
+  --glass: 215 42% 94%;
+  --glass-alpha: 0.38;
   --card: 0 0% 100%;
-  --card-foreground: 220 32% 10%;
+  --card-foreground: 222 32% 14%;
   --popover: 0 0% 100%;
-  --popover-foreground: 220 32% 12%;
-  --primary: 215 86% 60%;
+  --popover-foreground: 222 32% 14%;
+  --primary: 213 82% 56%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 223 30% 88%;
-  --secondary-foreground: 224 40% 18%;
-  --muted: 223 32% 90%;
-  --muted-foreground: 224 24% 40%;
-  --accent: 275 78% 68%;
+  --secondary: 210 24% 88%;
+  --secondary-foreground: 221 32% 16%;
+  --muted: 215 30% 88%;
+  --muted-foreground: 220 18% 38%;
+  --accent: 287 68% 70%;
   --accent-foreground: 0 0% 100%;
-  --destructive: 5 82% 58%;
+  --destructive: 5 78% 58%;
   --destructive-foreground: 0 0% 100%;
-  --border: 220 24% 86%;
-  --input: 220 22% 84%;
-  --ring: 215 86% 60%;
-  --chart-1: 215 86% 60%;
-  --chart-2: 275 78% 68%;
-  --chart-3: 160 64% 58%;
-  --chart-4: 45 96% 64%;
-  --chart-5: 12 84% 62%;
-  --shadow-color: 220 36% 12%;
+  --border: 215 30% 84%;
+  --input: 215 28% 82%;
+  --ring: 213 82% 56%;
+  --chart-1: 213 82% 56%;
+  --chart-2: 287 68% 70%;
+  --chart-3: 162 52% 54%;
+  --chart-4: 38 92% 60%;
+  --chart-5: 10 78% 60%;
+  --shadow-color: 220 36% 18%;
   --highlight-color: 0 0% 100%;
   --radius: 1.25rem;
-  --gradient-aurora: radial-gradient(160% 140% at 15% 20%, rgba(120, 190, 255, 0.56) 0%, rgba(255, 255, 255, 0) 60%), radial-gradient(120% 120% at 80% 10%, rgba(190, 160, 255, 0.48) 0%, rgba(255, 255, 255, 0) 55%), radial-gradient(160% 150% at 60% 90%, rgba(255, 210, 120, 0.45) 0%, rgba(255, 255, 255, 0) 60%);
+  --gradient-aurora: radial-gradient(130% 120% at 12% 18%, rgba(118, 182, 255, 0.52) 0%, rgba(255, 255, 255, 0) 58%), radial-gradient(120% 120% at 78% 14%, rgba(178, 152, 255, 0.38) 0%, rgba(255, 255, 255, 0) 55%), radial-gradient(160% 160% at 60% 90%, rgba(252, 208, 148, 0.38) 0%, rgba(255, 255, 255, 0) 60%);
   --ease-mac: cubic-bezier(0.16, 1, 0.3, 1);
-  --noise-opacity: 0.08;
+  --noise-opacity: 0.06;
 }
 
 .dark {
-  --background: 228 28% 8%;
-  --foreground: 220 36% 96%;
-  --surface: 230 23% 16%;
-  --surface-alpha: 0.78;
-  --subtle: 228 32% 12%;
-  --subtle-alpha: 0.68;
-  --glass: 228 24% 14%;
+  --background: 222 30% 8%;
+  --foreground: 216 42% 94%;
+  --surface: 224 26% 14%;
+  --surface-alpha: 0.75;
+  --subtle: 225 32% 12%;
+  --subtle-alpha: 0.58;
+  --glass: 225 24% 16%;
   --glass-alpha: 0.52;
-  --card: 228 28% 12%;
-  --card-foreground: 220 36% 96%;
-  --popover: 228 28% 12%;
-  --popover-foreground: 220 36% 96%;
-  --primary: 213 92% 72%;
-  --primary-foreground: 228 28% 12%;
-  --secondary: 228 32% 18%;
-  --secondary-foreground: 220 36% 92%;
-  --muted: 228 26% 22%;
-  --muted-foreground: 220 16% 68%;
-  --accent: 274 84% 72%;
-  --accent-foreground: 228 28% 10%;
-  --destructive: 5 84% 64%;
-  --destructive-foreground: 228 28% 12%;
-  --border: 228 26% 24%;
-  --input: 228 26% 26%;
-  --ring: 213 92% 72%;
-  --chart-1: 213 92% 72%;
-  --chart-2: 274 84% 72%;
-  --chart-3: 160 64% 58%;
-  --chart-4: 45 96% 64%;
-  --chart-5: 12 84% 62%;
-  --shadow-color: 228 28% 6%;
+  --card: 226 26% 12%;
+  --card-foreground: 216 42% 94%;
+  --popover: 226 26% 12%;
+  --popover-foreground: 216 42% 94%;
+  --primary: 208 88% 72%;
+  --primary-foreground: 226 26% 12%;
+  --secondary: 224 24% 18%;
+  --secondary-foreground: 216 40% 90%;
+  --muted: 226 22% 22%;
+  --muted-foreground: 220 18% 72%;
+  --accent: 285 72% 72%;
+  --accent-foreground: 226 26% 12%;
+  --destructive: 5 84% 62%;
+  --destructive-foreground: 226 26% 12%;
+  --border: 226 22% 24%;
+  --input: 226 22% 26%;
+  --ring: 208 88% 72%;
+  --chart-1: 208 88% 72%;
+  --chart-2: 285 72% 72%;
+  --chart-3: 158 58% 60%;
+  --chart-4: 38 90% 64%;
+  --chart-5: 10 78% 60%;
+  --shadow-color: 226 28% 8%;
   --highlight-color: 0 0% 100%;
-  --gradient-aurora: radial-gradient(160% 140% at 15% 20%, rgba(64, 160, 255, 0.42) 0%, rgba(20, 20, 35, 0) 60%), radial-gradient(120% 120% at 80% 10%, rgba(162, 120, 255, 0.42) 0%, rgba(20, 20, 35, 0) 55%), radial-gradient(160% 150% at 60% 90%, rgba(255, 140, 120, 0.38) 0%, rgba(20, 20, 35, 0) 60%);
+  --gradient-aurora: radial-gradient(150% 140% at 18% 20%, rgba(60, 148, 255, 0.42) 0%, rgba(10, 18, 40, 0) 60%), radial-gradient(130% 120% at 80% 12%, rgba(142, 108, 255, 0.4) 0%, rgba(10, 18, 40, 0) 55%), radial-gradient(160% 150% at 60% 92%, rgba(255, 138, 120, 0.36) 0%, rgba(10, 18, 40, 0) 60%);
 }
 
 @layer base {
@@ -85,6 +85,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    background-color: hsl(var(--background));
     background-image: var(--gradient-aurora);
     background-attachment: fixed;
     min-height: 100vh;
@@ -96,8 +97,8 @@
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
-    backdrop-filter: blur(120px) saturate(140%);
+    z-index: -2;
+    backdrop-filter: blur(160px) saturate(150%);
   }
 
   body::after {
@@ -105,7 +106,7 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
     mix-blend-mode: soft-light;
     opacity: var(--noise-opacity);
     pointer-events: none;
@@ -131,15 +132,16 @@
   }
 
   .glass-panel {
-    background-color: theme("colors.surface");
+    background-color: hsla(var(--surface) / var(--surface-alpha));
     box-shadow: theme("boxShadow.elevation-sm");
-    backdrop-filter: blur(24px) saturate(150%);
+    backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid hsla(var(--border) / 0.32);
   }
 
   .dock-blur {
-    background-color: hsla(var(--glass) / 0.45);
-    backdrop-filter: blur(30px) saturate(160%);
-    border: 1px solid hsla(var(--border) / 0.26);
+    background-color: hsla(var(--glass) / var(--glass-alpha));
+    backdrop-filter: blur(36px) saturate(170%);
+    border: 1px solid hsla(var(--border) / 0.24);
+    box-shadow: 0 18px 44px hsla(var(--shadow-color) / 0.22);
   }
 }

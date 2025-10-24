@@ -14,12 +14,13 @@ export function AppShell({ children, className }: AppShellProps) {
   return (
     <div
       className={cn(
-        "relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col gap-8 px-6 py-16 sm:px-10",
+        "relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col gap-8 px-4 py-14 pb-24 sm:gap-10 sm:px-10 sm:py-16 lg:px-12",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-[36px] border border-white/10 bg-glass shadow-elevation-md backdrop-blur-[60px]" />
-      <div className="relative flex flex-1 flex-col justify-between px-4 py-6 sm:px-10 sm:py-12">
+      <div className="pointer-events-none absolute inset-0 rounded-[40px] border border-white/18 bg-glass shadow-elevation-md backdrop-blur-[48px]" />
+      <div className="pointer-events-none absolute inset-0 rounded-[40px] bg-gradient-to-br from-white/55 via-white/20 to-white/6" />
+      <div className="relative flex flex-1 flex-col justify-between px-4 py-6 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
         {children}
       </div>
     </div>

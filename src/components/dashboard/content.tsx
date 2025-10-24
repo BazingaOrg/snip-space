@@ -24,19 +24,19 @@ export function DashboardContent({ groups }: { groups: GroupedEntries[] }) {
   return (
     <div className="flex flex-col gap-6">
       <header className="flex flex-col gap-2">
-        <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">{viewLabels[activeView]}</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-foreground/55">{viewLabels[activeView]}</p>
         <h2 className="text-2xl font-semibold text-foreground">
           {activeView === "today" ? "今天的剪藏快照" : viewLabels[activeView]}
         </h2>
-        <p className="text-sm text-foreground/65">{description}</p>
+        <p className="text-sm text-foreground/60">{description}</p>
       </header>
 
       {activeView === "timeline" || activeView === "today" ? (
         <TimelinePlaceholder groups={activeView === "today" ? todayGroups : timelineGroups} />
       ) : (
-        <div className="glass-panel flex flex-col gap-4 rounded-[32px] p-8 text-sm text-foreground/70 shadow-elevation-sm">
-          <p className="text-base font-medium text-foreground/85">敬请期待</p>
-          <p>
+        <div className="glass-panel flex flex-col gap-4 rounded-[36px] p-10 text-sm text-foreground/70 shadow-elevation-sm">
+          <p className="text-base font-medium text-foreground/80">敬请期待</p>
+          <p className="text-foreground/60">
             该视图的交互与数据流将在后续迭代中实现。当前页面仅保留布局占位，确保 Dock 状态与内容区保持同步。
           </p>
         </div>

@@ -9,8 +9,8 @@ export function Dock() {
   const setActiveView = useViewStore((state) => state.setActiveView);
 
   return (
-    <nav className="pointer-events-none fixed inset-x-0 bottom-8 z-40 flex justify-center px-4">
-      <div className="pointer-events-auto dock-blur flex w-[min(720px,90vw)] items-center justify-center gap-2 rounded-[28px] px-3 py-2 shadow-elevation-sm backdrop-blur-glass animate-fade-up">
+    <nav className="pointer-events-none fixed inset-x-0 bottom-6 z-40 flex justify-center px-4 sm:bottom-8">
+      <div className="pointer-events-auto dock-blur flex w-full max-w-[640px] items-center justify-center gap-2 rounded-[28px] px-3 py-2 animate-fade-up sm:max-w-[720px] sm:gap-3 sm:rounded-[32px] sm:px-4 sm:py-3">
         {dockItems.map((item) => {
           const isActive = item.id === activeView;
 
@@ -20,15 +20,17 @@ export function Dock() {
               type="button"
               onClick={() => setActiveView(item.id)}
               className={cn(
-                "group flex flex-col items-center gap-1 rounded-2xl px-3 py-2 text-xs font-medium transition-all duration-200 ease-mac",
+                "group flex flex-col items-center gap-0.5 rounded-2xl px-2.5 py-1.5 text-[10px] font-medium transition-all duration-200 ease-mac sm:px-3 sm:py-2 sm:text-xs",
                 "hover:-translate-y-1",
-                isActive ? "bg-white/30 text-foreground shadow-elevation-xs" : "text-foreground/70",
+                isActive
+                  ? "bg-white/55 text-foreground shadow-elevation-xs"
+                  : "text-foreground/65 hover:text-foreground",
               )}
             >
               <item.icon
                 className={cn(
-                  "h-5 w-5 transition-colors",
-                  isActive ? "text-foreground" : "text-foreground/75 group-hover:text-foreground",
+                  "h-4 w-4 transition-colors sm:h-5 sm:w-5",
+                  isActive ? "text-foreground" : "text-foreground/60 group-hover:text-foreground",
                 )}
                 strokeWidth={1.75}
               />

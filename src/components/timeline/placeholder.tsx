@@ -14,9 +14,9 @@ function EntryCard({
   sourceUrl?: string;
 }) {
   return (
-    <article className="group rounded-2xl border border-white/16 bg-white/8 p-4 shadow-elevation-xs transition-all duration-200 ease-mac hover:border-white/30 hover:bg-white/12">
+    <article className="group rounded-[28px] border border-white/24 bg-white/55 p-5 shadow-elevation-xs transition-all duration-200 ease-mac hover:border-white/32 hover:bg-white/65">
       <div className="flex items-center justify-between gap-3">
-        <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-foreground/55">
+        <span className="rounded-full border border-white/30 bg-white/60 px-3 py-1 text-xs uppercase tracking-[0.24em] text-foreground/60">
           {type}
         </span>
         {sourceUrl ? (
@@ -39,7 +39,7 @@ function EntryCard({
 export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
   if (groups.length === 0) {
     return (
-      <section className="glass-panel flex flex-col gap-4 rounded-[32px] p-8 text-sm text-foreground/70 shadow-elevation-sm">
+      <section className="glass-panel flex flex-col gap-4 rounded-[32px] p-6 text-sm text-foreground/70 shadow-elevation-sm sm:p-8">
         <h3 className="text-base font-semibold text-foreground">暂无剪藏</h3>
         <p>点击右下角的 + 按钮或直接粘贴内容，即可创建第一条笔记。</p>
       </section>
@@ -47,20 +47,23 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
   }
 
   return (
-    <section className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-      <div className="glass-panel flex flex-col gap-6 rounded-[32px] p-6 shadow-elevation-sm">
+    <section className="grid gap-5 sm:gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      <div className="glass-panel flex flex-col gap-5 rounded-[32px] p-6 shadow-elevation-sm sm:gap-6 sm:rounded-[36px] sm:p-8">
         <header className="flex items-center justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">Timeline</p>
             <h2 className="text-xl font-semibold text-foreground">Recent captures</h2>
           </div>
-          <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-foreground/60">
+          <span className="rounded-full border border-white/30 bg-white/55 px-4 py-1.5 text-xs text-foreground/65">
             Types filter TBD
           </span>
         </header>
-        <div className="space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {groups.map((group) => (
-            <div key={group.day} className="rounded-2xl border border-white/12 bg-white/8 p-4 shadow-elevation-xs">
+            <div
+              key={group.day}
+              className="rounded-[24px] border border-white/22 bg-white/50 p-4 shadow-elevation-xs sm:rounded-[28px] sm:p-5"
+            >
               <p className="text-xs uppercase tracking-[0.24em] text-foreground/45">{group.day}</p>
               <div className="mt-4 grid gap-3">
                 {group.entries.map((entry) => (
@@ -77,7 +80,7 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
           ))}
         </div>
       </div>
-      <aside className="glass-panel flex flex-col gap-4 rounded-[32px] p-6 shadow-elevation-sm">
+      <aside className="glass-panel flex flex-col gap-4 rounded-[32px] p-6 shadow-elevation-sm sm:rounded-[36px] sm:p-8">
         <h3 className="text-lg font-semibold text-foreground">Entry detail</h3>
         <p className="text-sm text-foreground/70">
           Selecting an item from the timeline will populate this panel with metadata, quick actions, and preview.
@@ -87,7 +90,7 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
         </div>
         <Link
           href="/docs/requirements"
-          className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-primary"
+          className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-primary transition-colors hover:text-primary/80"
         >
           查看完整需求文档 →
         </Link>

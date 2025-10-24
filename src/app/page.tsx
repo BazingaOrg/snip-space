@@ -25,17 +25,17 @@ export default async function Home() {
         <header className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-col gap-1">
-              <p className="text-xs uppercase tracking-[0.32em] text-foreground/50">Snipspace Workspace</p>
+              <p className="text-xs uppercase tracking-[0.32em] text-foreground/55">Snipspace Workspace</p>
               <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">Daily capture timeline</h1>
             </div>
             <Link
               href="/docs/requirements"
-              className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-foreground/80 shadow-elevation-xs transition-transform duration-200 ease-mac hover:-translate-y-0.5 hover:shadow-elevation-sm"
+              className="rounded-full border border-white/28 bg-white/55 px-5 py-2 text-sm font-medium text-foreground/75 shadow-elevation-xs transition-transform duration-200 ease-mac hover:-translate-y-0.5 hover:shadow-elevation-sm hover:text-foreground"
             >
               Requirements
             </Link>
           </div>
-          <p className="max-w-2xl text-sm text-foreground/65">
+          <p className="max-w-2xl text-sm text-foreground/60">
             Dock navigation, clipboard capture, and Supabase-backed search will populate the sections below as implementation progresses. This shell keeps the layout aligned while features land incrementally.
           </p>
         </header>

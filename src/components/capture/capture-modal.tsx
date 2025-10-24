@@ -184,24 +184,24 @@ export function CaptureEntryTrigger() {
       <DialogTrigger asChild>
         <Button
           size="icon"
-          className="group fixed bottom-28 right-6 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-elevation-md transition-transform duration-200 ease-mac hover:-translate-y-1"
+          className="group fixed bottom-28 right-6 z-50 h-14 w-14 rounded-full bg-gradient-to-br from-primary to-primary/85 text-primary-foreground shadow-elevation-md transition-transform duration-200 ease-mac hover:-translate-y-1 hover:from-primary/95 hover:to-primary/70"
         >
           <Plus className="h-6 w-6" />
           <span className="sr-only">打开新建剪藏面板</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl rounded-[36px] border border-white/20 bg-white/70 p-0 text-foreground shadow-elevation-md backdrop-blur-[30px] sm:p-0">
-        <DialogHeader className="space-y-2 border-b border-white/20 bg-white/20 px-8 py-6">
-          <DialogTitle className="flex items-center gap-2 text-foreground">
+      <DialogContent className="overflow-hidden">
+        <DialogHeader className="space-y-2 border-b border-white/22 bg-white/35 px-10 py-7">
+          <DialogTitle className="flex items-center gap-3 text-lg text-foreground">
             {TYPE_ICONS[draft.type]}
             <span>新建剪藏</span>
           </DialogTitle>
-          <DialogDescription className="text-sm text-foreground/65">
+          <DialogDescription className="text-sm text-foreground/70">
             支持直接粘贴文字、URL、图片等内容。图片需在 10MB 内，超出后会提示压缩。
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-6 px-8 py-6">
-          <div className="space-y-2">
+        <div className="space-y-6 px-10 py-8">
+          <div className="space-y-3">
             <Label htmlFor="entry-title">标题（可选）</Label>
             <Input
               id="entry-title"
@@ -210,7 +210,7 @@ export function CaptureEntryTrigger() {
               onChange={(event) => setDraft((prev) => ({ ...prev, title: event.target.value }))}
             />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
               <Label htmlFor="entry-content">内容</Label>
               <span className="text-xs text-foreground/50">自动识别类型：{draft.type}</span>
@@ -224,12 +224,12 @@ export function CaptureEntryTrigger() {
               onPaste={handlePaste}
             />
           </div>
-          <div className="flex items-center justify-between rounded-2xl border border-white/16 bg-white/10 px-4 py-3 text-xs text-foreground/70">
-            <span>{previewMeta}</span>
+          <div className="flex items-center justify-between rounded-3xl border border-white/24 bg-white/45 px-5 py-3 text-xs text-foreground/70">
+            <span className="text-foreground/60">{previewMeta}</span>
             <div className="flex items-center gap-2">
               <Label
                 htmlFor="entry-image"
-                className="cursor-pointer rounded-full border border-white/20 px-3 py-1 text-xs font-medium text-foreground/70 transition-colors hover:text-foreground"
+                className="cursor-pointer rounded-full border border-white/35 px-3 py-1 text-xs font-medium text-foreground/70 transition-colors hover:border-primary/40 hover:text-foreground"
               >
                 选择图片
               </Label>
@@ -238,7 +238,7 @@ export function CaptureEntryTrigger() {
           </div>
           {error ? <p className="text-sm text-destructive">{error}</p> : null}
         </div>
-        <DialogFooter className="flex items-center justify-end gap-3 border-t border-white/20 bg-white/30 px-8 py-4">
+        <DialogFooter className="flex items-center justify-end gap-3 border-t border-white/22 bg-white/40 px-10 py-6">
           <Button variant="outline" onClick={() => setOpen(false)} disabled={isSubmitting}>
             取消
           </Button>
