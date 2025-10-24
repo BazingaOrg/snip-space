@@ -116,8 +116,8 @@
 1. ✅ Initialize Next.js, Tailwind CSS, shadcn/ui baseline with global macOS 2026 tokens (completed on 2025-10-23).
 2. ⏳ Integrate Supabase client, configure environment variables, and set up `verify-password` Edge Function and storage bucket policies。（客户端工厂已就绪，暂以环境变量校验密码；Supabase 时间线查询与上传接口已搭建，Edge Function 暂不启用）。
 3. ✅ Build lock screen flow with session-scoped authentication cookie and animation（完成于 2025-10-23，支持环境变量与 Supabase Edge Function 双通道校验）。
-4. 🔄 Implement dashboard layout: Dock, timeline grouping, entry detail drawer, toast notifications（2025-10-23 搭建 Dock 与时间线占位骨架，并接入 Dock 视图状态与时间线 mock 数据分组；新增剪藏弹窗骨架与 toast 管道；时间线仍缺少 Entry Detail 右侧面板与类型筛选）。
-5. 🔄 Develop capture modal with type detection, clipboard ingestion, 10 MB compression workflow, and storage upload pipeline（2025-10-24 完成 Supabase 上传接口与前端提交流程；图片压缩与标签编辑仍未实现）。
+4. 🔄 Implement dashboard layout: Dock, timeline grouping, entry detail drawer, toast notifications（2025-10-23 搭建 Dock 与时间线占位骨架，并接入 Dock 视图状态与时间线 mock 数据分组；新增剪藏弹窗骨架与 toast 管道；时间线仍缺少 Entry Detail 右侧面板与类型筛选；2025-10-24 针对移动端优化布局并整合剪藏按钮）。
+5. 🔄 Develop capture modal with type detection, clipboard ingestion, 10 MB compression workflow, and storage upload pipeline（2025-10-24 完成 Supabase 上传接口与前端提交流程；图片压缩与标签编辑仍未实现；界面文案已中文化）。
 6. ⏳ Add type filters, search with Supabase full-text queries, and URL-based state persistence.
 7. ⏳ Polish motion curves, accessibility, responsive behavior; add tests and monitoring hooks.
 
@@ -128,6 +128,7 @@
 - **2025-10-24**: 实现 `/api/entries` Supabase 上传管道（文本/链接入库、图片上传至 `entry-images`），时间线读取改为优先查询 Supabase，失败时回退到 mock 数据。
 - **2025-10-24**: 统一 macOS 2026 视觉语言（全局色板、玻璃拟态阴影、按钮/输入/弹窗/锁屏/时间线等组件风格）。
 - **2025-10-24**: 调整移动端适配（时间线单列栅格、容器 break-word、Dock 布局），并将剪藏入口整合到 Dock。
+- **2025-10-24**: 全面中文本地化接口与提示文案（首页、Dock、剪藏面板、时间线、需求阅读页等）。
 
 ## 14. Decision Log
 - **2025-10-23**: 首页暂不展示功能预览，改为提示性占位，防止误导；所有功能实现以需求文档为准并在完成后更新进度。
