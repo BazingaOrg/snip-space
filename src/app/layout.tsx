@@ -15,8 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Snipspace",
-  description:
-    "Snipspace is a macOS-inspired knowledge dock for saving sentences, media, and links across devices.",
+  description: "Snipspace 是一款融入 macOS 2026 风格的知识 Dock，随手收集文字、链接与媒体。",
 };
 
 export default function RootLayout({

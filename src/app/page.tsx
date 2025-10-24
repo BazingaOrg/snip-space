@@ -25,12 +25,12 @@ export default async function Home() {
           <header className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-col gap-1">
-                <p className="text-xs uppercase tracking-[0.32em] text-foreground/55">Snipspace Workspace</p>
-                <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">Daily capture timeline</h1>
+                <p className="text-xs uppercase tracking-[0.32em] text-foreground/55">Snipspace 工作区</p>
+                <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">每日剪藏时间轴</h1>
               </div>
             </div>
             <p className="max-w-2xl text-sm text-foreground/60">
-              Dock navigation, clipboard capture, and Supabase-backed search will populate the sections below as implementation progresses. This shell keeps the layout aligned while features land incrementally.
+              Dock 导航、剪贴板采集与 Supabase 搜索将陆续上线，当前版本保持整体骨架稳定可用。
             </p>
           </header>
           <DashboardContent groups={groups} />

@@ -26,7 +26,7 @@ function EntryCard({
             target="_blank"
             rel="noreferrer"
           >
-            打开链接
+            打开原链接
           </Link>
         ) : null}
       </div>
@@ -41,7 +41,7 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
     return (
       <section className="glass-panel flex flex-col gap-4 rounded-[32px] p-6 text-sm text-foreground/70 shadow-elevation-sm sm:p-8">
         <h3 className="text-base font-semibold text-foreground">暂无剪藏</h3>
-        <p>点击右下角的 + 按钮或直接粘贴内容，即可创建第一条笔记。</p>
+        <p>点击 Dock 中的加号或直接粘贴内容，即可创建第一条笔记。</p>
       </section>
     );
   }
@@ -51,11 +51,11 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
       <div className="glass-panel flex min-w-0 flex-col gap-5 rounded-[32px] p-6 shadow-elevation-sm sm:gap-6 sm:rounded-[36px] sm:p-8">
         <header className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">Timeline</p>
-            <h2 className="text-xl font-semibold text-foreground">Recent captures</h2>
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">时间线</p>
+            <h2 className="text-xl font-semibold text-foreground">最近剪藏</h2>
           </div>
           <span className="rounded-full border border-white/30 bg-white/55 px-4 py-1.5 text-xs text-foreground/65">
-            Types filter TBD
+            类型筛选即将上线
           </span>
         </header>
         <div className="space-y-4 sm:space-y-5">
@@ -81,12 +81,12 @@ export function TimelinePlaceholder({ groups }: { groups: GroupedEntries[] }) {
         </div>
       </div>
       <aside className="glass-panel flex min-w-0 flex-col gap-4 rounded-[32px] p-6 shadow-elevation-sm sm:rounded-[36px] sm:p-8">
-        <h3 className="text-lg font-semibold text-foreground">Entry detail</h3>
+        <h3 className="text-lg font-semibold text-foreground">条目详情</h3>
         <p className="text-sm text-foreground/70">
-          Selecting an item from the timeline will populate this panel with metadata, quick actions, and preview.
+          未来点击时间线条目后，会在此展示元信息、快捷操作与预览内容。
         </p>
         <div className="rounded-2xl border border-white/18 bg-white/8 p-4 text-xs text-foreground/60">
-          Placeholder for pinned notes, quick tags, and toast notifications hooking into the right-top stack.
+          这里将用于展示置顶备注、快捷标签以及右上角通知的上下文。
         </div>
         <Link
           href="/docs/requirements"

@@ -7,10 +7,10 @@ import { TimelinePlaceholder } from "@/components/timeline/placeholder";
 import { useViewStore, viewLabels, type ViewId } from "@/stores/view-store";
 
 const viewDescriptions: Record<ViewId, string> = {
-  today: "聚焦当日收集的所有素材，随后会展示今日新增的文字、链接与图片条目。",
-  timeline: "浏览完整的时间线，按日期分组的所有历史剪藏会在此集中展示。",
-  types: "类型筛选器即将上线，可按文字、图片、视频、片段等维度过滤并组合视图。",
-  search: "全局搜索支持关键字、日期与标签过滤，未来会由 Supabase 全文索引驱动。",
+  today: "聚焦当日新增的文字、链接与图片，稍后会补充更多即时统计。",
+  timeline: "浏览完整时间线，所有历史剪藏按日期聚合展示。",
+  types: "类型筛选器即将上线，可按文字、图片、视频、片段等维度组合过滤。",
+  search: "全局搜索将支持关键字、日期与标签过滤，计划由 Supabase 全文索引驱动。",
   settings: "偏好设置面板将用于管理访问密码、主题、动画与同步策略。",
 };
 
