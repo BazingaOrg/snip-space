@@ -2,6 +2,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 
 import { LockScreen } from "@/components/auth/lock-screen";
+import { CaptureEntryTrigger } from "@/components/capture/capture-modal";
 import { Dock } from "@/components/navigation/dock";
 import { AppShell } from "@/components/layout/app-shell";
 import { DashboardContent } from "@/components/dashboard/content";
@@ -37,6 +38,7 @@ export default function Home() {
         <DashboardContent />
       </AppShell>
       <Dock />
+      <CaptureEntryTrigger />
     </main>
   );
 }

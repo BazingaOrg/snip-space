@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { Toaster } from "sonner";
+
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -31,6 +33,7 @@ export default function RootLayout({
         )}
       >
         <div className="relative flex min-h-screen flex-col">{children}</div>
+        <Toaster position="top-right" richColors toastOptions={{ className: "backdrop-blur-[18px] bg-white/80 text-foreground" }} />
       </body>
     </html>
   );

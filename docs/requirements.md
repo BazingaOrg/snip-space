@@ -116,7 +116,7 @@
 1. ✅ Initialize Next.js, Tailwind CSS, shadcn/ui baseline with global macOS 2026 tokens (completed on 2025-10-23).
 2. ⏳ Integrate Supabase client, configure environment variables, and set up `verify-password` Edge Function and storage bucket policies。（客户端工厂已就绪，Edge Function 待接入）。
 3. ✅ Build lock screen flow with session-scoped authentication cookie and animation（完成于 2025-10-23，支持环境变量与 Supabase Edge Function 双通道校验）。
-4. 🔄 Implement dashboard layout: Dock, timeline grouping, entry detail drawer, toast notifications（2025-10-23 搭建 Dock 与时间线占位骨架，并接入 Dock 视图状态与时间线 mock 数据分组）。
+4. 🔄 Implement dashboard layout: Dock, timeline grouping, entry detail drawer, toast notifications（2025-10-23 搭建 Dock 与时间线占位骨架，并接入 Dock 视图状态与时间线 mock 数据分组；新增剪藏弹窗骨架与 toast 管道）。
 5. ⏳ Develop capture modal with type detection, clipboard ingestion, 10 MB compression workflow, and storage upload pipeline.
 6. ⏳ Add type filters, search with Supabase full-text queries, and URL-based state persistence.
 7. ⏳ Polish motion curves, accessibility, responsive behavior; add tests and monitoring hooks.
@@ -124,7 +124,7 @@
 ## 13. Implementation Progress
 - **2025-10-23**: 完成项目初始化，采用稳定版 Next.js + Tailwind + shadcn/ui，设置 macOS 2026 主题令牌，并在首页保留占位壳体以便后续接入实际功能。
 - **2025-10-23**: 构建仿 macOS 锁屏界面，使用 Server Action + 环境变量校验访问密码并发放会话 Cookie（关闭标签页即失效）。
-- **2025-10-23**: 接入 Supabase server/browser 客户端工厂、锁屏 Supabase Edge Function 占位、完成 Dock 与时间线骨架布局并实现基础视图切换与 mock 数据分组展示。
+- **2025-10-23**: 接入 Supabase server/browser 客户端工厂、锁屏 Supabase Edge Function 占位、完成 Dock 与时间线骨架布局并实现基础视图切换与 mock 数据分组展示；新增剪藏弹窗（粘贴识别、10 MB 图片校验占位）与 toast 通知。
 
 ## 14. Decision Log
 - **2025-10-23**: 首页暂不展示功能预览，改为提示性占位，防止误导；所有功能实现以需求文档为准并在完成后更新进度。
